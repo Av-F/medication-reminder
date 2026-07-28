@@ -1,0 +1,55 @@
+button {
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+
+.dashboard-button {
+
+    margin-top: 30px;
+
+}
+
+
+
+.generate-button {
+
+    margin-top: 25px;
+
+    background: #2e7d32;
+
+    color: white;
+
+}
+
+
+
+.approve {
+
+    background: #2e7d32;
+
+    color: white;
+
+    margin-right: 10px;
+
+}
+
+
+
+.reject {
+
+    background: #c62828;
+
+    color: white;
+
+}

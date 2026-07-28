@@ -1,0 +1,63 @@
+.summary-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding-top: 50px;
+
+}
+
+
+
+.summary-container h1 {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.stats-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+
+.stat-box {
+
+    background: #e8eef5;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+
+.stat-box h2 {
+
+    font-size: 32px;
+
+    margin: 0;
+
+}
+
+
+
+.stat-box p {
+
+    margin-top: 10px;
+
+}

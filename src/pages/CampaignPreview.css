@@ -1,0 +1,61 @@
+.campaign-container {
+
+    padding: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 80vh;
+
+}
+
+
+
+.campaign-title {
+
+    text-align: center;
+
+}
+
+
+
+.channel-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.channel-buttons .selected {
+
+    background: #1565c0;
+
+    color: white;
+
+}
+
+
+
+.message-preview {
+
+    background: #f8fafc;
+
+    border-left: 5px solid #1565c0;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    line-height: 1.6;
+
+    margin-top: 15px;
+
+}
