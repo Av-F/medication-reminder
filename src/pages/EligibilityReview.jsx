@@ -20,10 +20,14 @@ function EligibilityReview() {
 
 
 
-    const communicationPreference =
-        prescription.smsPermission ||
-        prescription.emailPermission ||
-        prescription.pushPermission;
+    const channelPermissionMap = {
+    SMS: prescription.smsPermission,
+    Email: prescription.emailPermission,
+    Push: prescription.pushPermission,
+    };
+
+const communicationPreference =
+    channelPermissionMap[prescription.preferredChannel] ?? false;
 
 
 
