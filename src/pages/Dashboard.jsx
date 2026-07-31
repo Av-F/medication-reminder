@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getPrescriptionDetails } from "../services/prescriptionService";
+import { getPrescriptionDetails } from "../services/PrescriptionService";
 import PrescriptionTable from "../components/PrescriptionTable";
 import "./Dashboard.css";
 

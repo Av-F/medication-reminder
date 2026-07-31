@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { getPrescriptionDetails } from "../services/prescriptionService";
+import { getPrescriptionDetails } from "../services/PrescriptionService";
 import "./EligibilityReview.css";
 import { useEffect, useState } from "react";
 

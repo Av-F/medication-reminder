@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getPrescriptionDetails } from "../services/prescriptionService";
+import { getPrescriptionDetails } from "../services/PrescriptionService";
 import "./CampaignPreview.css";
 
 

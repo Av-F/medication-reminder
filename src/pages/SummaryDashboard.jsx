@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getSummaryStats } from "../services/summaryService";
+import { getSummaryStats } from "../services/SummaryService";
 
 import "./SummaryDashboard.css";
 

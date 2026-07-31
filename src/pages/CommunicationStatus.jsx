@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { getNotificationDetails } from "../services/notificationService";
+import { getNotificationDetails } from "../services/NotificationService";
 import { useEffect, useState } from "react";
 import "./CommunicationStatus.css";
 
@@ -67,7 +67,7 @@ function CommunicationStatus() {
                                     (notification) => (
 
                                     <tr
-                                        key={notification.notification_id}
+                                        key={notification.notificationId}
                                     >
 
                                         <td>
