@@ -1,48 +1,11 @@
-import notificationOutput from "../data/notificationOutput";
-import members from "../data/members";
+const API = "http://localhost:8000/api";
 
+export async function getNotificationDetails() {
+    const response = await fetch(`${API}/notifications`);
 
-export function getNotificationDetails() {
+    if (!response.ok) {
+        throw new Error("Failed to load notifications.");
+    }
 
-    return notificationOutput.map(
-        (notification) => {
-
-
-            const member = members.find(
-                m => Number(m.member_id) === Number(notification.member_id)
-            );
-
-
-            return {
-
-                notificationId:
-                    notification.notification_id,
-
-
-                memberId:
-                    notification.member_id,
-
-
-                memberName:
-                    member
-                    ? `${member.first_name} ${member.last_name}`
-                    : "Unknown Member",
-
-
-                channel:
-                    notification.communication_channel,
-
-
-                status:
-                    notification.delivery_status,
-
-
-                pickupDeadline:
-                    notification.pickup_deadline
-
-            };
-
-        }
-    );
-
+    return response.json();
 }

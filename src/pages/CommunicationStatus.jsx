@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-
 import { getNotificationDetails } from "../services/notificationService";
-
+import { useEffect, useState } from "react";
 import "./CommunicationStatus.css";
 
 
@@ -9,7 +8,14 @@ function CommunicationStatus() {
 
     const navigate = useNavigate();
 
-    const communicationData = getNotificationDetails();
+    const [communicationData, setCommunicationData] = useState([]);
+
+    useEffect(() => {
+        getNotificationDetails()
+            .then(setCommunicationData)
+            .catch(console.error);
+    }, []);
+
 
     return (
         <div className="status-container">
@@ -21,82 +27,86 @@ function CommunicationStatus() {
                 </h1>
 
 
-                <table>
+                <div className="table-container">
 
-                    <thead>
+                    <table>
 
-                        <tr>
+                        <thead>
 
-                            <th>
-                                Member ID
-                            </th>
+                            <tr>
 
-                            <th>
-                                Member Name
-                            </th>
+                                <th>
+                                    Member ID
+                                </th>
 
-                            <th>
-                                Channel
-                            </th>
+                                <th>
+                                    Member Name
+                                </th>
 
-                            <th>
-                                Status
-                            </th>
+                                <th>
+                                    Channel
+                                </th>
 
-                            <th>
-                                Pickup Deadline
-                            </th>
+                                <th>
+                                    Status
+                                </th>
 
-                        </tr>
+                                <th>
+                                    Pickup Deadline
+                                </th>
 
-                    </thead>
+                            </tr>
 
-
-                    <tbody>
-
-                        {
-                            communicationData.map(
-                                (notification) => (
-
-                                <tr
-                                    key={notification.notification_id}
-                                >
-
-                                    <td>
-                                        {notification.member_id}
-                                    </td>
+                        </thead>
 
 
-                                    <td>
-                                        {notification.memberName}
-                                    </td>
+                        <tbody>
+
+                            {
+                                communicationData.map(
+                                    (notification) => (
+
+                                    <tr
+                                        key={notification.notification_id}
+                                    >
+
+                                        <td>
+                                            {notification.memberId}
+                                        </td>
 
 
-                                    <td>
-                                        {notification.channel}
-                                    </td>
+                                        <td>
+                                            {notification.memberName}
+                                        </td>
 
 
-                                    <td>
-                                        {notification.status}
-                                    </td>
+                                        <td>
+                                            {notification.channel}
+                                        </td>
 
 
-                                    <td>
-                                        {notification.pickupDeadline}
-                                    </td>
+                                        <td>
+                                            {notification.status}
+                                        </td>
 
 
-                                </tr>
-
-                            ))
-                        }
-
-
-                    </tbody>
+                                        <td>
+                                            {notification.pickupDeadline}
+                                        </td>
 
 
-                </table>
+                                    </tr>
+
+                                ))
+                            }
+
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
 
                 <div className="status-buttons">
 
@@ -116,6 +126,7 @@ function CommunicationStatus() {
                     </button>
 
                 </div>
+
 
             </div>
 

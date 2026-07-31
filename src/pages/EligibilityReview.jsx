@@ -1,24 +1,34 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { getPrescriptionDetails } from "../services/prescriptionService";
 import "./EligibilityReview.css";
-
+import { useEffect, useState } from "react";
 
 function EligibilityReview() {
 
     const { id } = useParams();
     const navigate = useNavigate();
+    
 
+    const [prescriptions, setPrescriptions] = useState([]);
 
-    const prescription = getPrescriptionDetails()
-        .find(
-            p => p.id === Number(id)
-        );
+        useEffect(() => {
+        getPrescriptionDetails()
+            .then(setPrescriptions)
+            .catch(console.error);
+    }, []);
 
+    const prescription =
+    prescriptions.find(
+        p => p.id === id
+    );
 
-    if (!prescription)
+    if (prescriptions.length === 0) {
+    return <h2>Loading...</h2>;
+}
+
+    if (!prescription) {
         return <h2>Prescription not found.</h2>;
-
-
+    }
 
     const channelPermissionMap = {
     SMS: prescription.smsPermission,

@@ -17,3 +17,20 @@
     margin-bottom: 30px;
 
 }
+
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.table-container table {
+    width: 100%;
+}
+
+.table-container thead th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}

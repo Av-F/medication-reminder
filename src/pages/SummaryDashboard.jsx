@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 import { getSummaryStats } from "../services/summaryService";
 
 import "./SummaryDashboard.css";
@@ -9,14 +9,13 @@ function SummaryDashboard() {
 
     const navigate = useNavigate();
 
+    const [summary, setSummary] = useState(null);
 
-    const {
-    totalPrescriptions,
-    eligibleMembers,
-    notificationsSent,
-    deliverySuccessRate
-
-} = getSummaryStats();
+    useEffect(() => {
+        getSummaryStats()
+            .then(setSummary)
+            .catch(console.error);
+        }, []);
 
     return (
 
@@ -38,7 +37,7 @@ function SummaryDashboard() {
                     <div className="stat-box">
 
                         <h2>
-                            {totalPrescriptions}
+                            {summary?.totalPrescriptions}
                         </h2>
 
                         <p>
@@ -52,7 +51,7 @@ function SummaryDashboard() {
                     <div className="stat-box">
 
                         <h2>
-                            {eligibleMembers}
+                            {summary?.eligibleMembers}
                         </h2>
 
                         <p>
@@ -67,7 +66,7 @@ function SummaryDashboard() {
                     <div className="stat-box">
 
                         <h2>
-                            {notificationsSent}
+                            {summary?.notificationsSent}
                         </h2>
 
                         <p>
@@ -82,7 +81,7 @@ function SummaryDashboard() {
                     <div className="stat-box">
 
                         <h2>
-                            {deliverySuccessRate}%
+                            {summary?.deliverySuccessRate}%
                         </h2>
 
                         <p>

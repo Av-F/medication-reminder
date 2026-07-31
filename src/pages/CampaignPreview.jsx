@@ -1,8 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { getPrescriptionDetails } from "../services/prescriptionService";
-
 import "./CampaignPreview.css";
 
 
@@ -12,13 +10,21 @@ function CampaignPreview() {
     const navigate = useNavigate();
 
     const [channel, setChannel] = useState("SMS");
+    const [prescriptions, setPrescriptions] = useState([]);
 
+        useEffect(() => {
+        getPrescriptionDetails()
+            .then(setPrescriptions)
+            .catch(console.error);
+    }, []);
 
-    const prescription = getPrescriptionDetails()
-        .find(
-            p => p.id === Number(id)
-        );
+    const prescription = prescriptions.find(
+    p => p.id === id
+    );
 
+    if (prescriptions.length === 0) {
+    return <h2>Loading...</h2>;
+    }
 
     if (!prescription) {
         return <h2>Prescription not found.</h2>;
